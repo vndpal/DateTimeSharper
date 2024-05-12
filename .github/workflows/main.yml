@@ -17,19 +17,17 @@ jobs:
       with:
         dotnet-version: '8.0'  # Specify the .NET version
 
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: Restore NuGet Packages
+      run: nuget restore DateTimeSharper.sln
 
     - name: Build
-      run: dotnet build --configuration Release
+      run: msbuild /p:Configuration=Release /p:Platform="Any CPU" /p:OutputPath=bin/ DateTimeSharper\DateTimeSharper.csproj
 
-    - name: Pack
-      run: dotnet pack --configuration Release --output ./artifacts --no-build
+    - name: Pack NuGet Package
+      run: nuget pack DateTimeSharper\DateTimeSharper.csproj -Properties Configuration=Release -OutputDirectory $(Build.ArtifactStagingDirectory)
 
     - name: Publish NuGet Package
-      uses: nuget/publish@v1
-      with:
-        nuget-api-key: ${{ secrets.NUGET_API_KEY }}  # Use a GitHub secret for the NuGet API key
-        nuget-spec: './DateTimeSharper.csproj'  # Path to your .csproj file
-        nuget-output-directory: './artifacts'
-        nuget-version: '1.0.3'  # Specify the version of the NuGet package
+      run: |
+        dotnet nuget push $(Build.ArtifactStagingDirectory)/*.nupkg --source "https://www.nuget.org/api/v2/package" --api-key "${{ secrets.NUGET_API_KEY }}"
+      env:
+        NUGET_EXE_NO_PROMPT: true
