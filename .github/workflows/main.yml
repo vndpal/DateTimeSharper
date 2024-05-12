@@ -24,10 +24,9 @@ jobs:
       run: dotnet build --configuration Release  # Build the solution in Release mode
 
     - name: Pack NuGet Package
-      run: dotnet pack DateTimeSharper/DateTimeSharper.csproj --configuration Release --output $(Build.ArtifactStagingDirectory)
-      # Replace YourProjectFolder/YourProject.csproj with your project file path
+      run: dotnet pack DateTimeSharper/DateTimeSharper.csproj --configuration Release --output $(System.ArtifactsDirectory)
 
     - name: Publish NuGet Package
-      run: dotnet nuget push $(Build.ArtifactStagingDirectory)/*.nupkg --source "https://www.nuget.org/api/v2/package" --api-key "${{ secrets.NUGET_API_KEY }}"
+      run: dotnet nuget push $(System.ArtifactsDirectory)/*.nupkg --source "https://www.nuget.org/api/v2/package" --api-key "${{ secrets.NUGET_API_KEY }}"
       env:
-        NUGET_EXE_NO_PROMPT: true
+        NUGET_EXE_NO_PROMPT: tru
