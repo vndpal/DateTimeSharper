@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>DateTimeSharper</Title>
+	<IsPackable>true</IsPackable>
     <PackageTags>DateTime,Date,Time</PackageTags>
     <AssemblyVersion>1.0.0.1</AssemblyVersion>
     <FileVersion>1.0.0.1</FileVersion>
