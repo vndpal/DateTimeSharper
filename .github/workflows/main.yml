@@ -1,0 +1,35 @@
+name: Build and Publish NuGet Package
+
+on:
+  push:
+    branches:
+      - main  # Trigger workflow on pushes to the main branch
+
+jobs:
+  build:
+    runs-on: windows-latest  # Use the latest Windows runner
+
+    steps:
+    - uses: actions/checkout@v2  # Checkout the repository
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.0'  # Specify the .NET version
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release
+
+    - name: Pack
+      run: dotnet pack --configuration Release --output ./artifacts --no-build
+
+    - name: Publish NuGet Package
+      uses: nuget/publish@v1
+      with:
+        nuget-api-key: ${{ secrets.NUGET_API_KEY }}  # Use a GitHub secret for the NuGet API key
+        nuget-spec: './DateTimeSharper.csproj'  # Path to your .csproj file
+        nuget-output-directory: './artifacts'
+        nuget-version: '1.0.3'  # Specify the version of the NuGet package
