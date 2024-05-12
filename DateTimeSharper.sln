@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeSharper", "DateTimeSharper\DateTimeSharper.csproj", "{FA3D7413-33B6-405F-A591-302602674D8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateTimeSharper", "DateTimeSharper\DateTimeSharper.csproj", "{FA3D7413-33B6-405F-A591-302602674D8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeSharperApiTest", "DateTimeSharperApiTest\DateTimeSharperApiTest.csproj", "{05E60577-8E83-4185-B010-0E95C503F85F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateTimeSharperApiTest", "DateTimeSharperApiTest\DateTimeSharperApiTest.csproj", "{05E60577-8E83-4185-B010-0E95C503F85F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeSharper.Test", "DateTimeSharper.Test\DateTimeSharper.Test.csproj", "{5D62D32C-D949-492A-889F-05325A8E7B7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{05E60577-8E83-4185-B010-0E95C503F85F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05E60577-8E83-4185-B010-0E95C503F85F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05E60577-8E83-4185-B010-0E95C503F85F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D62D32C-D949-492A-889F-05325A8E7B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D62D32C-D949-492A-889F-05325A8E7B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D62D32C-D949-492A-889F-05325A8E7B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D62D32C-D949-492A-889F-05325A8E7B7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

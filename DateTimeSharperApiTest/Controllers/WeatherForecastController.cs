@@ -7,17 +7,17 @@ namespace DateTimeSharperApiTest.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-       
+
 
         public WeatherForecastController()
         {
-
         }
+              
 
-        [HttpGet(Name = "GetCurrentDateTime")]
-        public DateTime Get()
+        [HttpGet(Name = "ConvertTimeZone")]
+        public DateTime ConvertTimeZone(DateTime dateTime, TimeZoneEnum sourceTimeZoen, TimeZoneEnum destinationTimeZone)
         {
-            return DateTimeSharper.DateTimeSharper.getCurrentDateTime(DateTimeSharper.TimeZone.Ist);
+            return TimeZoneConverter.ConvertTime(dateTime, sourceTimeZoen, destinationTimeZone);
         }
     }
 }

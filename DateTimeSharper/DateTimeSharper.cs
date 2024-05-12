@@ -2,19 +2,10 @@
 {
     public static class DateTimeSharper
     {
-        public static DateTime getCurrentDateTime(TimeZone timeZone)
+        public static DateTime getCurrentDateTime(TimeZoneEnum timeZone)
         {
             return DateTime.Now;
         }
-    }
-
-    public enum TimeZone
-    {
-        Local,
-        Utc,
-        Ist,
-        Est,
-        Pst
-    }
+    }   
 
 }
